@@ -164,13 +164,13 @@
 		var percentage;
 
 		// backbone dots
-		material = new THREE.ParticleBasicMaterial( { color: 0xFFFFFF, size: 1} );
+		material = new THREE.PointCloudMaterial( { color: 0xFFFFFF, size: 1} );
 		geometry = new THREE.Geometry();
 		for(i = 0; i < this.totalVertices; i++) {
 			geometry.vertices.push(new THREE.Vector3());
 		}
 		
-		this.particles = new THREE.ParticleSystem( geometry, material );
+		this.particles = new THREE.PointCloud( geometry, material );
 		this.base.add(this.particles);
 		this.particles.visible = false;
 
@@ -232,7 +232,7 @@
 			transparent: true,
 			opacity: .9,
 			specular: 0x050505});
-		geometry = new THREE.PlaneGeometry( width*10, depth*10 ,100,100);
+		geometry = new THREE.PlaneBufferGeometry( width*10, depth*10 ,100,100);
 
 		this.water = new THREE.Mesh( geometry, material );
 		this.water.rotation.x = -Math.PI/2;
@@ -248,7 +248,7 @@
 			transparent: true,
 			opacity: .9,
 			specular: 0x050505});
-		geometry = new THREE.PlaneGeometry( width*10, depth*10 );
+		geometry = new THREE.PlaneBufferGeometry( width*10, depth*10 );
 
 		this.ground = new THREE.Mesh( geometry, material );
 		this.ground.rotation.x = -Math.PI/2;
